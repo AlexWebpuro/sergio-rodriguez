@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 320" role="img" aria-label="Ilustración de una cama hospitalaria eléctrica">
+<rect width="480" height="320" rx="24" fill="#e3f4f1"/>
+<ellipse cx="240" cy="284" rx="200" ry="12" fill="#0d2340" opacity=".08"/>
+<rect x="44" y="70" width="22" height="196" rx="8" fill="#0d2340"/>
+<rect x="416" y="120" width="22" height="146" rx="8" fill="#0d2340"/>
+<rect x="40" y="70" width="30" height="70" rx="10" fill="#16345c"/>
+<path d="M70 196h346" stroke="#0d2340" stroke-width="14" stroke-linecap="round"/>
+<path d="M84 186l70-70h40l-56 70z" fill="#fff" stroke="#0d2340" stroke-width="4" stroke-linejoin="round"/>
+<rect x="134" y="160" width="276" height="28" rx="10" fill="#fff" stroke="#0d2340" stroke-width="4"/>
+<path d="M104 166l58-48" stroke="#9fd3e8" stroke-width="10" stroke-linecap="round"/>
+<rect x="190" y="132" width="150" height="10" rx="5" fill="#0e8f7e"/>
+<path d="M190 137v26M340 137v26" stroke="#0e8f7e" stroke-width="6"/>
+<path d="M120 204l40 50M340 204l-40 50M160 254h140" stroke="#5b7fb5" stroke-width="6" stroke-linecap="round"/>
+<circle cx="96" cy="268" r="12" fill="#0d2340"/><circle cx="388" cy="268" r="12" fill="#0d2340"/>
+<circle cx="96" cy="268" r="4" fill="#c9d6e0"/><circle cx="388" cy="268" r="4" fill="#c9d6e0"/>
+<path d="M360 188c10 30 30 30 40 40" fill="none" stroke="#0d2340" stroke-width="3"/>
+<rect x="392" y="220" width="22" height="40" rx="6" fill="#fff" stroke="#0d2340" stroke-width="3"/>
+<circle cx="403" cy="232" r="4" fill="#0e8f7e"/><circle cx="403" cy="246" r="4" fill="#5b7fb5"/>
+</svg>

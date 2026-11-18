@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 320" role="img" aria-label="Ilustración de un concentrador de oxígeno">
+<rect width="480" height="320" rx="24" fill="#e3f4f1"/>
+<ellipse cx="220" cy="284" rx="130" ry="12" fill="#0d2340" opacity=".08"/>
+<rect x="140" y="36" width="160" height="236" rx="28" fill="#fff" stroke="#0d2340" stroke-width="4"/>
+<rect x="140" y="36" width="160" height="56" rx="28" fill="#0d2340"/>
+<rect x="140" y="64" width="160" height="28" fill="#0d2340"/>
+<rect x="166" y="52" width="60" height="26" rx="6" fill="#16345c"/>
+<text x="196" y="71" font-family="system-ui,Arial" font-size="16" font-weight="700" fill="#2fd1b8" text-anchor="middle">93%</text>
+<circle cx="262" cy="64" r="10" fill="#1fa855"/>
+<rect x="166" y="108" width="34" height="92" rx="17" fill="#f1f4f8" stroke="#0d2340" stroke-width="3"/>
+<rect x="174" y="150" width="18" height="42" rx="9" fill="#9fd3e8"/>
+<circle cx="183" cy="146" r="9" fill="#0e8f7e"/>
+<g fill="none" stroke="#c9d6e0" stroke-width="5" stroke-linecap="round">
+<path d="M222 120h52M222 138h52M222 156h52M222 174h52M222 192h52"/>
+</g>
+<rect x="222" y="214" width="52" height="30" rx="8" fill="#e6ecf5"/>
+<circle cx="248" cy="229" r="8" fill="#fff" stroke="#0d2340" stroke-width="3"/>
+<circle cx="168" cy="276" r="10" fill="#0d2340"/><circle cx="272" cy="276" r="10" fill="#0d2340"/>
+<path d="M248 229c60 0 100 10 120-30 16-32 50-40 70-20" fill="none" stroke="#9fd3e8" stroke-width="6" stroke-linecap="round"/>
+<path d="M408 172c10 10 30 10 34-6" fill="none" stroke="#0e8f7e" stroke-width="6" stroke-linecap="round"/>
+<circle cx="396" cy="120" r="8" fill="#2fd1b8" opacity=".6"/><circle cx="420" cy="100" r="5" fill="#2fd1b8" opacity=".5"/><circle cx="376" cy="96" r="4" fill="#2fd1b8" opacity=".4"/>
+</svg>

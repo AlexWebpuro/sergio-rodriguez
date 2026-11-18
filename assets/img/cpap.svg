@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 320" role="img" aria-label="Ilustración de un equipo CPAP con manguera y máscara">
+<rect width="480" height="320" rx="24" fill="#e3f4f1"/>
+<ellipse cx="240" cy="268" rx="190" ry="14" fill="#0d2340" opacity=".08"/>
+<rect x="70" y="140" width="190" height="122" rx="22" fill="#fff" stroke="#0d2340" stroke-width="4"/>
+<rect x="92" y="160" width="86" height="52" rx="8" fill="#0d2340"/>
+<text x="135" y="194" font-family="system-ui,Arial" font-size="24" font-weight="700" fill="#2fd1b8" text-anchor="middle">10.0</text>
+<circle cx="214" cy="186" r="20" fill="#f1f4f8" stroke="#0d2340" stroke-width="3"/>
+<circle cx="214" cy="186" r="7" fill="#0e8f7e"/>
+<rect x="92" y="226" width="40" height="10" rx="5" fill="#cfe9e4"/>
+<rect x="140" y="226" width="22" height="10" rx="5" fill="#cfe9e4"/>
+<rect x="260" y="168" width="64" height="94" rx="14" fill="#d7eef7" stroke="#0d2340" stroke-width="4"/>
+<path d="M266 222h52v26a10 10 0 0 1-10 10h-32a10 10 0 0 1-10-10z" fill="#9fd3e8"/>
+<rect x="280" y="150" width="24" height="20" rx="6" fill="#fff" stroke="#0d2340" stroke-width="4"/>
+<path d="M292 150c0-60 40-96 96-96" fill="none" stroke="#0d2340" stroke-width="16" stroke-linecap="round"/>
+<path d="M292 150c0-60 40-96 96-96" fill="none" stroke="#b9c7d6" stroke-width="9" stroke-linecap="round" stroke-dasharray="2 7"/>
+<path d="M370 40c28-6 58 8 64 36 6 30-14 58-44 62-30 4-50-18-50-46 0-24 10-46 30-52z" fill="#fff" stroke="#0d2340" stroke-width="4"/>
+<path d="M378 62c14-4 32 4 34 20 2 18-10 32-26 32s-26-12-24-28c1-12 6-20 16-24z" fill="#d7eef7"/>
+<path d="M430 64c18 10 26 30 22 50M362 52c-14 18-18 40-10 60" fill="none" stroke="#0e8f7e" stroke-width="5" stroke-linecap="round"/>
+</svg>

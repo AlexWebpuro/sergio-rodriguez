@@ -71,6 +71,7 @@ LOGO = '<svg class="brand-mark" viewBox="0 0 40 40" aria-hidden="true"><rect wid
 SERVICES = [
     {
         "slug": "mantenimiento-cpap-bpap-bogota",
+        "img": "cpap",
         "icon": "cpap",
         "short": "CPAP y BPAP",
         "audience": "pacientes",
@@ -105,6 +106,7 @@ SERVICES = [
     },
     {
         "slug": "mantenimiento-concentradores-oxigeno-bogota",
+        "img": "concentrador",
         "icon": "oxygen",
         "short": "Concentradores de oxígeno",
         "audience": "pacientes",
@@ -139,6 +141,7 @@ SERVICES = [
     },
     {
         "slug": "mantenimiento-torres-endoscopia-laparoscopia-bogota",
+        "img": "torre-endoscopia",
         "icon": "tower",
         "short": "Torres de endoscopia y laparoscopia",
         "audience": "clinicas",
@@ -173,6 +176,7 @@ SERVICES = [
     },
     {
         "slug": "mantenimiento-endoscopios-rigidos-flexibles-bogota",
+        "img": "endoscopio",
         "icon": "scope",
         "short": "Endoscopios rígidos y flexibles",
         "audience": "clinicas",
@@ -206,6 +210,7 @@ SERVICES = [
     },
     {
         "slug": "mantenimiento-mobiliario-hospitalario-bogota",
+        "img": "cama-hospitalaria",
         "icon": "bed",
         "short": "Mobiliario hospitalario",
         "audience": "ambos",
@@ -356,7 +361,7 @@ def page(path, title, description, body, current="", schemas=(), robots="index,f
     canonical = SITE_URL + url(path)
     ld = "\n".join(jsonld(s) for s in schemas)
     return f"""<!doctype html>
-<html lang="es-CO">
+<html lang="es-CO" data-base="{BASE}">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -384,6 +389,7 @@ def page(path, title, description, body, current="", schemas=(), robots="index,f
 {body}
 </main>
 {footer()}
+<script src="{url('assets/phone-input.js')}" defer></script>
 <script src="{url('assets/main.js')}" defer></script>
 </body>
 </html>
@@ -404,7 +410,7 @@ def cta_band(title="¿Tu equipo necesita revisión?", text="Escríbeme por Whats
 
 def service_card(s):
     return f"""<a class="card" href="{url('servicios/' + s['slug'] + '/')}">
-  <div class="icon">{ICONS[s['icon']]}</div>
+  <img class="card-img" src="{url('assets/img/' + s['img'] + '.svg')}" alt="{s['short']}" width="480" height="320" loading="lazy">
   <h3>{s['short']}</h3>
   <p>{s['card']}</p>
   <span class="more">Ver servicio →</span>
@@ -548,11 +554,14 @@ def build_service(s):
     crumbs = [("Inicio", ""), ("Servicios", "servicios/"), (s["short"], f"servicios/{s['slug']}/")]
     body = f"""
 <section class="page-hero">
-  <div class="container">
+  <div class="container page-hero-grid">
+    <div>
     <nav class="breadcrumbs" aria-label="Ruta"><ol><li><a href="{url()}">Inicio</a></li><li><a href="{url('servicios/')}">Servicios</a></li><li aria-current="page">{s['short']}</li></ol></nav>
     <h1>{s['h1']}</h1>
     <p class="lead">{s['intro']}</p>
     <div class="btn-row"><a class="btn btn-wa" href="{wa_link(wa_text)}" target="_blank" rel="noopener">{ICONS['wa']} Escríbeme por WhatsApp</a><a class="btn btn-ghost" href="{url('contacto/')}">Solicitar cotización</a></div>
+    </div>
+    <img class="hero-img" src="{url('assets/img/' + s['img'] + '.svg')}" alt="{s['short']}" width="480" height="320" fetchpriority="high">
   </div>
 </section>
 <section class="section">
@@ -682,10 +691,8 @@ def build_contact():
 <section class="section">
   <div class="container content-grid">
     <form id="form-cotizacion" class="form card" data-key="{WEB3FORMS_KEY}" data-wa="{WA_NUMBER}" novalidate>
-      <div class="row">
-        <div><label for="nombre">Nombre</label><input id="nombre" name="nombre" required autocomplete="name"></div>
-        <div><label for="telefono">Teléfono o WhatsApp</label><input id="telefono" name="telefono" type="tel" required autocomplete="tel"></div>
-      </div>
+      <div><label for="nombre">Nombre</label><input id="nombre" name="nombre" required autocomplete="name"></div>
+      <div><label>Teléfono o WhatsApp</label><div class="phone-field" data-phone-input data-name="telefono" data-label="Número de celular" data-required></div></div>
       <div class="row">
         <div><label for="tipo">Soy</label><select id="tipo" name="tipo"><option>Paciente o familiar</option><option>Clínica, IPS o consultorio</option><option>Otro</option></select></div>
         <div><label for="zona">Zona</label><select id="zona" name="zona">{zones}</select></div>
