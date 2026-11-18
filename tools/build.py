@@ -79,7 +79,7 @@ SERVICES = [
         "h1": "Mantenimiento y reparación de CPAP y BPAP en Bogotá",
         "description": "Revisión, mantenimiento y reparación de equipos CPAP y BPAP en Suba y el norte de Bogotá. Diagnóstico por un ingeniero biomédico. Escríbeme por WhatsApp.",
         "card": "Tu equipo no enciende, hace ruido, no da la presión o el humidificador gotea. Lo revisamos y te decimos qué tiene.",
-        "intro": "Si usas un CPAP o BPAP para la apnea del sueño u otra condición respiratoria, sabes que una noche sin equipo se nota. Reviso y reparo tu equipo en Suba y el norte de Bogotá, con diagnóstico claro antes de hacer cualquier trabajo.",
+        "intro": "Si usas un CPAP o BPAP para la apnea del sueño u otra condición respiratoria, sabes que una noche sin equipo se nota. Voy a tu casa en Suba y el norte de Bogotá a revisar y reparar tu equipo, con diagnóstico claro antes de hacer cualquier trabajo.",
         "symptoms": [
             "No enciende o se apaga solo",
             "Hace más ruido de lo normal",
@@ -101,7 +101,7 @@ SERVICES = [
             ("¿Cada cuánto debo hacerle mantenimiento a mi CPAP?", "Lo recomendable es revisar el equipo al menos una vez al año, o antes si notas ruido, olor, alarmas o que la presión no se siente igual. Los filtros y la limpieza de la máscara y la manguera los debes hacer tú con más frecuencia, según el manual del fabricante."),
             ("¿Reparan BPAP además de CPAP?", "Sí. Atiendo tanto equipos CPAP como BPAP (bi-nivel). Escríbeme la marca y el modelo para orientarte desde el primer mensaje."),
             ("¿Cuánto cuesta el mantenimiento de un CPAP?", "Depende del modelo y de lo que tenga el equipo. Primero hago el diagnóstico y te doy el valor antes de hacer cualquier trabajo, para que decidas con la información completa."),
-            ("¿Atienden en Suba?", "Sí, estoy ubicado en Suba y atiendo también Usaquén, Engativá, Barrios Unidos, Chapinero, Chía, Cota y Cajicá. Escríbeme y coordinamos."),
+            ("¿Van a domicilio?", "Sí. Voy a tu casa en Suba, Usaquén, Engativá, Barrios Unidos, Chapinero, Chía, Cota y Cajicá. Escríbeme y coordinamos la visita."),
         ],
     },
     {
@@ -114,7 +114,7 @@ SERVICES = [
         "h1": "Mantenimiento y reparación de concentradores de oxígeno en Bogotá",
         "description": "Mantenimiento preventivo y correctivo de concentradores de oxígeno en Suba y el norte de Bogotá. Revisión de alarmas, flujo y concentración. Escríbeme por WhatsApp.",
         "card": "Alarmas, ruido, calentamiento o baja concentración. Revisamos el equipo para que siga entregando el oxígeno que necesitas.",
-        "intro": "Un concentrador de oxígeno trabaja muchas horas seguidas y necesita mantenimiento para seguir entregando el oxígeno que el paciente necesita. Hago mantenimiento preventivo y correctivo de concentradores en Suba y sus alrededores.",
+        "intro": "Un concentrador de oxígeno trabaja muchas horas seguidas y necesita mantenimiento para seguir entregando el oxígeno que el paciente necesita. Voy a tu casa a hacer el mantenimiento preventivo y correctivo de tu concentrador, en Suba y sus alrededores.",
         "symptoms": [
             "Suena una alarma o se enciende un indicador",
             "Hace ruido fuerte o vibra",
@@ -136,7 +136,7 @@ SERVICES = [
             ("¿Cada cuánto se le hace mantenimiento a un concentrador de oxígeno?", "Depende del uso y del fabricante, pero un equipo que trabaja todos los días debería revisarse periódicamente, al menos una vez al año. Los filtros externos se limpian con más frecuencia, según el manual."),
             ("Mi concentrador pita, ¿qué hago?", "Revisa primero que la manguera no esté doblada y que el equipo tenga buena ventilación. Si la alarma sigue, usa tu respaldo de oxígeno y escríbeme para revisarlo. No ignores una alarma persistente."),
             ("¿Cuánto cuesta el mantenimiento?", "Depende del modelo y del estado del equipo. Te doy el valor después del diagnóstico y antes de hacer cualquier trabajo."),
-            ("¿En qué zonas atienden?", "Suba, Usaquén, Engativá, Barrios Unidos, Chapinero, Chía, Cota y Cajicá."),
+            ("¿Atienden a domicilio?", "Sí, el servicio es a domicilio en Suba, Usaquén, Engativá, Barrios Unidos, Chapinero, Chía, Cota y Cajicá."),
         ],
     },
     {
@@ -149,7 +149,7 @@ SERVICES = [
         "h1": "Mantenimiento de torres de endoscopia y laparoscopia en Bogotá",
         "description": "Mantenimiento preventivo y correctivo de torres de endoscopia y laparoscopia para clínicas e IPS en Bogotá: fuente de luz, video, insuflador. Ingeniero biomédico.",
         "card": "Fuentes de luz, procesadores de video, cámaras, insufladores y monitores. Mantenimiento con reporte técnico para tu servicio.",
-        "intro": "Cuando una torre de endoscopia o laparoscopia falla, se cancelan procedimientos. Hago mantenimiento preventivo y correctivo para clínicas, IPS y centros de procedimientos en Bogotá, con reportes técnicos que respaldan la gestión de tu tecnología biomédica.",
+        "intro": "Cuando una torre de endoscopia o laparoscopia falla, se cancelan procedimientos. Voy a tu clínica, IPS o centro de procedimientos en Bogotá a hacer el mantenimiento preventivo y correctivo, con reportes técnicos que respaldan la gestión de tu tecnología biomédica.",
         "symptoms": [
             "Imagen oscura, con ruido o colores alterados",
             "La fuente de luz no enciende o pierde intensidad",
@@ -218,7 +218,7 @@ SERVICES = [
         "h1": "Mantenimiento de camas hospitalarias y mobiliario hospitalario en Bogotá",
         "description": "Reparación y mantenimiento de camas hospitalarias eléctricas y manuales, camillas y mobiliario hospitalario en Suba y el norte de Bogotá. Para hogares y clínicas.",
         "card": "Camas eléctricas y manuales, camillas y mobiliario. Motores, controles, barandas, frenos y ruedas, en casa o en tu institución.",
-        "intro": "Una cama hospitalaria que no sube, no baja o tiene las barandas sueltas es un riesgo para el paciente. Hago mantenimiento de camas hospitalarias y mobiliario para hogares con pacientes y para instituciones de salud en Suba y el norte de Bogotá.",
+        "intro": "Una cama hospitalaria que no sube, no baja o tiene las barandas sueltas es un riesgo para el paciente. Voy a tu casa o a tu institución a hacer el mantenimiento de camas hospitalarias y mobiliario, en Suba y el norte de Bogotá.",
         "symptoms": [
             "El motor no responde o el control está dañado",
             "La cama no sube, no baja o no inclina",
@@ -246,7 +246,7 @@ SERVICES = [
 
 FAQ_HOME = [
     ("¿Qué equipos atiendes?", "CPAP y BPAP, concentradores de oxígeno, torres de endoscopia y laparoscopia, endoscopios rígidos y flexibles, y mobiliario hospitalario como camas y camillas."),
-    ("¿Atiendes a pacientes en casa o solo a clínicas?", "A ambos. Muchos de mis clientes son familias con equipos en casa, como CPAP, concentradores o camas hospitalarias, y también atiendo clínicas, IPS y consultorios."),
+    ("¿Atiendes a domicilio?", "Sí, todo mi servicio es a domicilio: voy a tu casa, clínica, IPS o consultorio. Atiendo a ambos. Muchos de mis clientes son familias con equipos en casa, como CPAP, concentradores o camas hospitalarias, y también atiendo clínicas, IPS y consultorios."),
     ("¿En qué zonas de Bogotá trabajas?", "Estoy en Suba y atiendo también Usaquén, Engativá, Barrios Unidos y Chapinero, además de Chía, Cota y Cajicá."),
     ("¿Cómo sé cuánto me va a costar?", "Primero hago el diagnóstico y te explico qué tiene el equipo. Te doy el valor antes de hacer cualquier trabajo, sin sorpresas."),
 ]
@@ -330,7 +330,7 @@ def footer():
     <div class="footer-grid">
       <div>
         <h3>{NAME}</h3>
-        <p>{ROLE}. Mantenimiento preventivo, correctivo y predictivo de equipos biomédicos en Suba y el norte de Bogotá.</p>
+        <p>{ROLE}. Mantenimiento a domicilio de equipos biomédicos en Suba y el norte de Bogotá.</p>
         <ul>
           <li><a href="tel:{PHONE_TEL}">{PHONE_DISPLAY}</a></li>
           <li><a href="mailto:{EMAIL}">{EMAIL}</a></li>
@@ -435,13 +435,14 @@ def build_home():
     <div>
       <span class="eyebrow">Ingeniero biomédico en Suba, Bogotá</span>
       <h1>Mantenimiento de equipos biomédicos en Bogotá</h1>
-      <p class="lead">Reviso, mantengo y reparo CPAP, BPAP, concentradores de oxígeno, torres de endoscopia y laparoscopia, endoscopios y camas hospitalarias. Para pacientes en casa y para clínicas, en Suba y sus alrededores.</p>
+      <p class="lead">Reviso, mantengo y reparo CPAP, BPAP, concentradores de oxígeno, torres de endoscopia y laparoscopia, endoscopios y camas hospitalarias. Voy a tu casa, clínica o consultorio en Suba y sus alrededores.</p>
       <div class="btn-row">
         <a class="btn btn-wa" href="{wa_link()}" target="_blank" rel="noopener">{ICONS['wa']} Escríbeme por WhatsApp</a>
         <a class="btn btn-ghost" href="{url('contacto/')}">Solicitar cotización</a>
       </div>
       <div class="trust-row">
         <span>{ICONS['check']} Ingeniero biomédico</span>
+        <span>{ICONS['check']} Servicio a domicilio</span>
         <span>{ICONS['check']} Diagnóstico antes de cobrar</span>
         <span>{ICONS['pin']} Suba y norte de Bogotá</span>
       </div>
@@ -500,7 +501,7 @@ def build_home():
     <div class="center"><span class="eyebrow">Cómo trabajo</span><h2>Simple y sin sorpresas</h2></div>
     <ol class="steps" style="margin-top:28px">
       <li><h3>Me escribes</h3><p>Por WhatsApp o el formulario, con la marca, el modelo y lo que le pasa al equipo.</p></li>
-      <li><h3>Diagnóstico</h3><p>Reviso el equipo, te explico qué tiene y te doy el valor antes de hacer cualquier trabajo.</p></li>
+      <li><h3>Visita y diagnóstico</h3><p>Voy a donde estás, reviso el equipo, te explico qué tiene y te doy el valor antes de hacer cualquier trabajo.</p></li>
       <li><h3>Mantenimiento y entrega</h3><p>Hago el trabajo, pruebo el equipo y te entrego un reporte con recomendaciones de cuidado.</p></li>
     </ol>
   </div>
@@ -537,7 +538,7 @@ def build_home():
     return page(
         "",
         "Mantenimiento de equipos biomédicos en Bogotá | Ing. Sergio Rodríguez",
-        "Ingeniero biomédico en Suba, Bogotá. Mantenimiento y reparación de CPAP, BPAP, concentradores de oxígeno, endoscopia, laparoscopia y camas hospitalarias.",
+        "Ingeniero biomédico a domicilio en Suba, Bogotá. Mantenimiento y reparación de CPAP, BPAP, concentradores de oxígeno, endoscopia, laparoscopia y camas hospitalarias.",
         body,
         current="",
         schemas=[business_schema(), faq_schema(FAQ_HOME)],
@@ -644,7 +645,7 @@ def build_coverage():
   <div class="container">
     <nav class="breadcrumbs" aria-label="Ruta"><ol><li><a href="{url()}">Inicio</a></li><li aria-current="page">Cobertura</li></ol></nav>
     <h1>Mantenimiento de equipos biomédicos en Suba y el norte de Bogotá</h1>
-    <p class="lead">Estoy ubicado en Suba. Desde aquí atiendo a pacientes en casa, clínicas, IPS y consultorios del norte de Bogotá y de la Sabana.</p>
+    <p class="lead">Estoy ubicado en Suba y trabajo a domicilio. Voy a donde están pacientes en casa, clínicas, IPS y consultorios del norte de Bogotá y de la Sabana.</p>
   </div>
 </section>
 <section class="section">

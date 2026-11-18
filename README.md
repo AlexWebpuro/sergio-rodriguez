@@ -52,7 +52,6 @@ y se pega en `WEB3FORMS_KEY` dentro de `tools/build.py`. Luego se regenera el si
 ## Pendiente por confirmar con Sergio
 
 - [ ] Marcas y modelos que maneja (ResMed, Philips, Yuwell, Olympus, Storz, Pentax…) para añadirlos a cada servicio.
-- [ ] Si atiende a domicilio o el equipo se lleva a taller.
 - [ ] Si hace calibración e instalación y si entrega certificado.
 - [ ] Fotos reales de su trabajo (reemplazar el diseño sin fotos).
 - [ ] Revisar que los textos técnicos de cada servicio reflejan lo que él hace.
