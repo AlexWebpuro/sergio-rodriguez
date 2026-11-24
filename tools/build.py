@@ -255,6 +255,41 @@ SERVICES = [
         ],
     },
     {
+        "slug": "mantenimiento-desfibriladores-bogota",
+        "photos": ['desfibrilador-mindray-beneheart-d3-prueba-energia'],
+        "icon": "tower",
+        "short": "Desfibriladores y DEA",
+        "audience": "clinicas",
+        "title": "Mantenimiento de desfibriladores y DEA en Bogotá | Suba",
+        "h1": "Mantenimiento de desfibriladores y DEA en Bogotá",
+        "description": "Mantenimiento preventivo y correctivo de desfibriladores y DEA para clínicas, IPS, empresas y conjuntos en Bogotá. Prueba de energía, batería, palas y electrodos.",
+        "card": "Desfibriladores manuales y DEA. Prueba de energía, batería, palas, cables y electrodos, con reporte técnico.",
+        "intro": "Un desfibrilador se usa pocas veces, pero cuando se necesita tiene que funcionar a la primera. Voy a tu clínica, IPS, empresa o conjunto en Bogotá a hacer el mantenimiento de desfibriladores y DEA, y dejo un reporte técnico de cada revisión.",
+        "symptoms": [
+            "No pasa la autoprueba o muestra un error",
+            "La batería no carga o dura poco",
+            "Tarda mucho en cargar la energía",
+            "Palas, cables o conectores desgastados",
+            "Electrodos vencidos o sin fecha a la vista",
+            "Hace tiempo no recibe mantenimiento",
+        ],
+        "includes": [
+            "Inspección física del equipo, palas, cables y conectores.",
+            "Prueba de carga y descarga de energía.",
+            "Revisión de la batería y del tiempo de carga.",
+            "Revisión de pantalla, alarmas, registro de eventos e impresora si la tiene.",
+            "Control de fechas de vencimiento de electrodos y batería.",
+            "Reporte técnico para la hoja de vida del equipo.",
+        ],
+        "notice": "<strong>¿Tu empresa o conjunto tiene un DEA?</strong> La Ley 1831 de 2017 exige desfibriladores externos automáticos en lugares de alta afluencia de público, como centros comerciales, empresas grandes y conjuntos de más de cien unidades. Tenerlo no basta: debe estar listo para usar, con batería y electrodos vigentes.",
+        "faq": [
+            ("¿Cada cuánto se le hace mantenimiento a un desfibrilador?", "Lo usual es un mantenimiento preventivo al menos una vez al año, además de las autopruebas y revisiones que indique el fabricante. Los electrodos y la batería tienen fecha de vencimiento y hay que revisarlos con frecuencia."),
+            ("¿Atienden DEA de empresas, gimnasios y conjuntos?", "Sí. Además de clínicas e IPS, atiendo desfibriladores externos automáticos de empresas, gimnasios, colegios y conjuntos residenciales."),
+            ("¿Qué incluye la prueba de energía?", "Se verifica que el equipo cargue y descargue correctamente y en un tiempo adecuado. Es una de las pruebas más importantes, porque confirma que el desfibrilador responderá en una emergencia."),
+            ("¿Entregan reporte?", "Sí. Cada mantenimiento queda documentado con un reporte técnico que puedes anexar a la hoja de vida del equipo."),
+        ],
+    },
+    {
         "slug": "mantenimiento-mobiliario-hospitalario-bogota",
         "img": "cama-hospitalaria",
         "icon": "bed",
@@ -291,7 +326,7 @@ SERVICES = [
 ]
 
 FAQ_HOME = [
-    ("¿Qué equipos atiendes?", "CPAP y BPAP, concentradores de oxígeno, torres de endoscopia y laparoscopia, endoscopios rígidos y flexibles, y mobiliario hospitalario como camas y camillas."),
+    ("¿Qué equipos atiendes?", "CPAP y BPAP, concentradores de oxígeno, torres de endoscopia y laparoscopia, endoscopios rígidos y flexibles, desfibriladores y DEA, y mobiliario hospitalario como camas y camillas."),
     ("¿Atiendes a domicilio?", "Sí, todo mi servicio es a domicilio: voy a tu casa, clínica, IPS o consultorio. Atiendo a ambos. Muchos de mis clientes son familias con equipos en casa, como CPAP, concentradores o camas hospitalarias, y también atiendo clínicas, IPS y consultorios."),
     ("¿En qué zonas de Bogotá trabajas?", "Estoy en Suba y atiendo también Usaquén, Engativá, Barrios Unidos y Chapinero, además de Chía, Cota y Cajicá."),
     ("¿Cómo sé cuánto me va a costar?", "Primero hago el diagnóstico y te explico qué tiene el equipo. Te doy el valor antes de hacer cualquier trabajo, sin sorpresas."),
@@ -307,7 +342,7 @@ def business_schema():
         "@type": "ProfessionalService",
         "@id": SITE_URL + "/#negocio",
         "name": f"{NAME} — {ROLE}",
-        "description": "Mantenimiento preventivo, correctivo y predictivo de equipos biomédicos en Bogotá: CPAP, BPAP, concentradores de oxígeno, endoscopia, laparoscopia y mobiliario hospitalario.",
+        "description": "Mantenimiento preventivo, correctivo y predictivo de equipos biomédicos en Bogotá: CPAP, BPAP, concentradores de oxígeno, endoscopia, laparoscopia, desfibriladores y mobiliario hospitalario.",
         "url": SITE_URL + "/",
         "telephone": PHONE_TEL,
         "email": EMAIL,
@@ -495,7 +530,7 @@ def build_home():
     <div>
       <span class="eyebrow">Ingeniero biomédico en Suba, Bogotá</span>
       <h1>Mantenimiento de equipos biomédicos en Bogotá</h1>
-      <p class="lead">Reviso, mantengo y reparo CPAP, BPAP, concentradores de oxígeno, torres de endoscopia y laparoscopia, endoscopios y camas hospitalarias. Voy a tu casa, clínica o consultorio en Suba y sus alrededores.</p>
+      <p class="lead">Reviso, mantengo y reparo CPAP, BPAP, concentradores de oxígeno, torres de endoscopia y laparoscopia, endoscopios, desfibriladores y camas hospitalarias. Voy a tu casa, clínica o consultorio en Suba y sus alrededores.</p>
       <div class="btn-row">
         <a class="btn btn-wa" href="{wa_link()}" target="_blank" rel="noopener">{ICONS['wa']} Escríbeme por WhatsApp</a>
         <a class="btn btn-ghost" href="{url('contacto/')}">Solicitar cotización</a>
@@ -606,7 +641,7 @@ def build_home():
     return page(
         "",
         "Mantenimiento de equipos biomédicos en Bogotá | Ing. Sergio Rodríguez",
-        "Ingeniero biomédico a domicilio en Suba, Bogotá. Mantenimiento y reparación de CPAP, BPAP, concentradores de oxígeno, endoscopia, laparoscopia y camas hospitalarias.",
+        "Ingeniero biomédico a domicilio en Suba, Bogotá. Mantenimiento de CPAP, BPAP, concentradores de oxígeno, endoscopia, desfibriladores y camas hospitalarias.",
         body,
         current="",
         schemas=[business_schema(), faq_schema(FAQ_HOME)],
