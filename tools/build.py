@@ -429,9 +429,10 @@ def footer():
         <li><a href="{wa_link()}" target="_blank" rel="noopener">Escribir por WhatsApp</a></li>
       </ul></div>
     </div>
-    <div class="footer-bottom">© {date.today().year} {NAME} · {ROLE} · Bogotá, Colombia</div>
+    <div class="footer-bottom">© {date.today().year} {NAME} · {ROLE} · Bogotá, Colombia · <a href="{url('privacidad/')}">Política de privacidad</a></div>
   </div>
 </footer>
+<div class="cookie-note" hidden><p>Uso cookies de medición (Google Analytics y Microsoft Clarity) para entender cómo se usa la página y mejorarla. <a href="{url('privacidad/')}#cookies">Más información</a></p><button type="button" class="btn btn-primary btn-sm">Entendido</button></div>
 <a class="wa-float" href="{wa_link()}" target="_blank" rel="noopener" aria-label="Escribir por WhatsApp">{ICONS['wa']}</a>"""
 
 
@@ -827,9 +828,10 @@ def build_contact():
       <div><label for="equipo">Equipo</label><select id="equipo" name="equipo">{options}</select></div>
       <div><label for="mensaje">¿Qué le pasa al equipo? (marca y modelo si los tienes)</label><textarea id="mensaje" name="mensaje" required></textarea></div>
       <input type="checkbox" name="botcheck" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+      <label class="consent"><input type="checkbox" name="autorizacion" value="Sí" required> <span>Autorizo el tratamiento de mis datos personales para responder esta solicitud, según la <a href="{url('privacidad/')}" target="_blank">política de privacidad</a>.</span></label>
       <button class="btn btn-primary" type="submit">Enviar solicitud</button>
       <p class="form-status" role="status" aria-live="polite"></p>
-      <p class="form-note">Uso tus datos solo para responder tu solicitud.</p>
+      <p class="form-note">No incluyas datos clínicos ni de tu historia médica: con la marca, el modelo y la falla del equipo es suficiente.</p>
     </form>
     <aside class="aside-card">
       <h3>Contacto directo</h3>
@@ -845,6 +847,86 @@ def build_contact():
     return page("contacto/", "Contacto y cotización | Ing. Sergio Rodríguez, ingeniero biomédico",
                 "Solicita una cotización de mantenimiento de equipos biomédicos en Bogotá. WhatsApp 301 449 7065. Atención en Suba y el norte de Bogotá.",
                 body, current="contacto/", schemas=[business_schema(), breadcrumb_schema(crumbs)])
+
+
+def build_privacy():
+    body = f"""
+<section class="page-hero">
+  <div class="container">
+    <nav class="breadcrumbs" aria-label="Ruta"><ol><li><a href="{url()}">Inicio</a></li><li aria-current="page">Política de privacidad</li></ol></nav>
+    <h1>Política de privacidad y tratamiento de datos personales</h1>
+    <p class="lead">Cómo recojo, uso y protejo tus datos cuando visitas esta página o me contactas, de acuerdo con la Ley 1581 de 2012 y sus decretos reglamentarios.</p>
+  </div>
+</section>
+<section class="section">
+  <div class="container prose" style="max-width:820px">
+    <h2>1. Responsable del tratamiento</h2>
+    <ul>
+      <li><strong>Responsable:</strong> Sergio Rodríguez, ingeniero biomédico ({NAME}).</li>
+      <li><strong>Domicilio:</strong> Bogotá D.C., Colombia.</li>
+      <li><strong>Correo:</strong> <a href="mailto:{EMAIL}">{EMAIL}</a></li>
+      <li><strong>Teléfono y WhatsApp:</strong> <a href="tel:{PHONE_TEL}">{PHONE_DISPLAY}</a></li>
+    </ul>
+    <p>Por este mismo correo atiendo consultas, reclamos y solicitudes sobre tus datos personales.</p>
+
+    <h2>2. Qué datos recojo</h2>
+    <ul>
+      <li><strong>Datos que tú me das:</strong> nombre, teléfono o WhatsApp, zona, tipo de cliente, el equipo y la descripción de la falla, cuando llenas el formulario o me escribes por WhatsApp, teléfono o correo.</li>
+      <li><strong>Datos de navegación:</strong> páginas visitadas, tiempo en la página, clics, tipo de dispositivo y navegador, ciudad aproximada y fuente de la visita, recogidos con cookies de medición (ver sección 6).</li>
+    </ul>
+    <p>No necesito datos clínicos ni de tu historia médica para cotizar o hacer un mantenimiento. Te pido no enviarlos. Si al describir tu equipo compartes información sobre tu salud, es un dato sensible: no estás obligado a darla y solo la usaré para atender tu solicitud.</p>
+
+    <h2>3. Para qué uso tus datos</h2>
+    <ul>
+      <li>Responder tu solicitud, cotizar y agendar la visita o el servicio.</li>
+      <li>Prestar el servicio, entregar el reporte técnico y hacer seguimiento a la garantía.</li>
+      <li>Recordarte el próximo mantenimiento de tu equipo, si así lo autorizas.</li>
+      <li>Pedirte tu opinión o una reseña sobre el servicio.</li>
+      <li>Entender cómo se usa esta página y mejorarla, con datos de navegación agregados.</li>
+    </ul>
+    <p>No vendo ni cedo tus datos a terceros para fines comerciales.</p>
+
+    <h2>4. Con quién se comparten</h2>
+    <p>Para operar esta página y comunicarme contigo uso servicios de terceros que pueden guardar datos en servidores fuera de Colombia, como Estados Unidos: Google (Analytics, Tag Manager y Gmail), Microsoft (Clarity), Meta (WhatsApp), GitHub y Cloudflare (alojamiento de la página) y, si está activo, el servicio de envío del formulario. Estos proveedores solo tratan los datos para prestar su servicio y tienen sus propias políticas de privacidad.</p>
+
+    <h2>5. Tus derechos</h2>
+    <p>Como titular de los datos tienes derecho a:</p>
+    <ul>
+      <li>Conocer, actualizar y rectificar tus datos.</li>
+      <li>Pedir prueba de la autorización que diste.</li>
+      <li>Saber cómo se han usado tus datos.</li>
+      <li>Revocar la autorización o pedir que se borren tus datos, cuando no exista un deber legal o contractual de conservarlos.</li>
+      <li>Acceder gratis a tus datos.</li>
+      <li>Presentar quejas ante la Superintendencia de Industria y Comercio (SIC) por infracciones a la ley, después de haber hecho tu consulta o reclamo conmigo.</li>
+    </ul>
+
+    <h2>6. Cookies y herramientas de medición</h2>
+    <p id="cookies">Esta página usa:</p>
+    <ul>
+      <li><strong>Google Tag Manager y Google Analytics 4:</strong> miden visitas, páginas vistas y clics en los botones de contacto, de forma estadística.</li>
+      <li><strong>Microsoft Clarity:</strong> registra de forma anónima cómo se navega la página (clics, desplazamiento y mapas de calor) para mejorar su diseño. Clarity oculta por defecto lo que se escribe en los formularios.</li>
+    </ul>
+    <p>Puedes bloquear o borrar las cookies desde la configuración de tu navegador, o navegar en modo privado. La página sigue funcionando sin ellas.</p>
+
+    <h2>7. Cómo hacer una consulta o un reclamo</h2>
+    <p>Escríbeme a <a href="mailto:{EMAIL}">{EMAIL}</a> con tu nombre, cómo contactarte y qué solicitas.</p>
+    <ul>
+      <li><strong>Consultas</strong> (qué datos tengo y cómo los uso): respondo en un máximo de 10 días hábiles. Si no es posible, te aviso el motivo y respondo en máximo 5 días hábiles más.</li>
+      <li><strong>Reclamos</strong> (corregir, actualizar, borrar o revocar la autorización): respondo en un máximo de 15 días hábiles. Si no es posible, te aviso el motivo y respondo en máximo 8 días hábiles más.</li>
+    </ul>
+
+    <h2>8. Cuánto tiempo guardo los datos</h2>
+    <p>Mientras sea necesario para atender tu solicitud y prestar el servicio, y después por el tiempo que exijan las normas contables, tributarias o de garantía. Los datos de navegación se conservan según la configuración de cada herramienta.</p>
+
+    <h2>9. Vigencia</h2>
+    <p>Esta política rige desde el {date.today().strftime('%d/%m/%Y')}. Si cambia, publicaré la nueva versión en esta misma página.</p>
+  </div>
+</section>
+"""
+    crumbs = [("Inicio", ""), ("Política de privacidad", "privacidad/")]
+    return page("privacidad/", "Política de privacidad | Ing. Sergio Rodríguez",
+                "Política de tratamiento de datos personales y uso de cookies de la página del Ing. Sergio Rodríguez, ingeniero biomédico en Bogotá.",
+                body, schemas=[breadcrumb_schema(crumbs)], robots="noindex,follow")
 
 
 def build_404():
@@ -874,6 +956,7 @@ def main():
         pages.append((f"servicios/{s['slug']}/", build_service(s)))
     pages.append(("cobertura/", build_coverage()))
     pages.append(("contacto/", build_contact()))
+    write("privacidad/index.html", build_privacy())
 
     for p, html in pages:
         write(os.path.join(p, "index.html"), html)

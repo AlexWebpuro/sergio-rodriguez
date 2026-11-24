@@ -100,3 +100,16 @@ window.trackEvent = function (name, params) {
     else if (href.indexOf('mailto:') === 0) track('contacto_correo', params);
   });
 })();
+
+// Aviso de cookies (informativo, se recuerda por navegador)
+(function () {
+  var note = document.querySelector('.cookie-note');
+  if (!note) return;
+  var seen = false;
+  try { seen = localStorage.getItem('aviso_cookies') === '1'; } catch (e) {}
+  if (!seen) note.hidden = false;
+  note.querySelector('button').addEventListener('click', function () {
+    note.hidden = true;
+    try { localStorage.setItem('aviso_cookies', '1'); } catch (e) {}
+  });
+})();
