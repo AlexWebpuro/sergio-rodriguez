@@ -26,7 +26,10 @@ PHONE_TEL = "+573014497065"
 WA_NUMBER = "573014497065"
 EMAIL = "sergiodavid.r46@gmail.com"
 WEB3FORMS_KEY = "PON_AQUI_TU_ACCESS_KEY"        # clave de web3forms.com; mientras no exista, el formulario abre WhatsApp
-GA_ID = ""                                       # opcional: ID de Google Analytics 4 (G-XXXXXXX)
+# --- Métricas: pega aquí los códigos y vuelve a generar el sitio ---
+GA_ID = ""            # Google Analytics 4, ID de medición: "G-XXXXXXXXXX"
+CLARITY_ID = ""       # Microsoft Clarity, ID del proyecto: "abcd1234ef"
+GSC_VERIFICATION = "" # Google Search Console, solo el valor content="..." de la etiqueta meta
 TODAY = date.today().isoformat()
 
 ZONES_MAIN = "Suba"
@@ -431,11 +434,20 @@ def footer():
 <a class="wa-float" href="{wa_link()}" target="_blank" rel="noopener" aria-label="Escribir por WhatsApp">{ICONS['wa']}</a>"""
 
 
+def gsc_meta():
+    return f'\n<meta name="google-site-verification" content="{GSC_VERIFICATION}">' if GSC_VERIFICATION else ""
+
+
 def ga():
-    if not GA_ID:
-        return ""
-    return f"""<script async src="https://www.googletagmanager.com/gtag/js?id={GA_ID}"></script>
-<script>window.dataLayer=window.dataLayer||[];function gtag(){{dataLayer.push(arguments);}}gtag('js',new Date());gtag('config','{GA_ID}');</script>"""
+    out = ""
+    if GA_ID:
+        out += f"""<script async src="https://www.googletagmanager.com/gtag/js?id={GA_ID}"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){{dataLayer.push(arguments);}}gtag('js',new Date());gtag('config','{GA_ID}');</script>
+"""
+    if CLARITY_ID:
+        out += f"""<script>(function(c,l,a,r,i,t,y){{c[a]=c[a]||function(){{(c[a].q=c[a].q||[]).push(arguments)}};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);}})(window,document,"clarity","script","{CLARITY_ID}");</script>
+"""
+    return out
 
 
 def page(path, title, description, body, current="", schemas=(), robots="index,follow"):
@@ -450,7 +462,7 @@ def page(path, title, description, body, current="", schemas=(), robots="index,f
 <meta name="description" content="{escape(description)}">
 <meta name="robots" content="{robots}">
 <link rel="canonical" href="{canonical}">
-<meta name="theme-color" content="#0d2340">
+<meta name="theme-color" content="#0d2340">{gsc_meta()}
 <meta property="og:type" content="website">
 <meta property="og:locale" content="es_CO">
 <meta property="og:site_name" content="{NAME}">

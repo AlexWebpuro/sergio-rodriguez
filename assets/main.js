@@ -43,6 +43,7 @@
     if (!form.reportValidity()) return;
 
     if (!key || key.indexOf('PON_AQUI') === 0) {
+      if (window.gtag) window.gtag('event', 'generate_lead', { metodo: 'formulario_whatsapp' });
       window.open('https://wa.me/' + wa + '?text=' + encodeURIComponent(whatsappText()), '_blank', 'noopener');
       return;
     }
@@ -61,7 +62,8 @@
           status.textContent = '¡Listo! Recibí tu solicitud y te contacto pronto.';
           status.className = 'form-status ok';
           form.reset();
-          if (window.gtag) window.gtag('event', 'generate_lead');
+          if (window.gtag) window.gtag('event', 'generate_lead', { metodo: 'formulario' });
+          if (window.clarity) window.clarity('event', 'generate_lead');
         } else {
           throw new Error(res.message || 'error');
         }
@@ -70,5 +72,24 @@
         status.innerHTML = 'No se pudo enviar. Escríbeme directo por <a href="https://wa.me/' + wa + '?text=' + encodeURIComponent(whatsappText()) + '" target="_blank" rel="noopener">WhatsApp</a>.';
         status.className = 'form-status err';
       });
+  });
+})();
+
+// Medición de contactos: WhatsApp, llamadas y correo (GA4 + Clarity)
+(function () {
+  function track(name, params) {
+    if (window.gtag) window.gtag('event', name, params);
+    if (window.clarity) window.clarity('event', name);
+  }
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest && e.target.closest('a[href]');
+    if (!a) return;
+    var href = a.getAttribute('href');
+    var where = a.classList.contains('wa-float') ? 'boton_flotante'
+      : (a.closest('header') ? 'menu' : (a.closest('.aside-card') ? 'lateral' : (a.closest('.hero, .page-hero') ? 'portada' : 'contenido')));
+    var params = { ubicacion: where, pagina: location.pathname };
+    if (href.indexOf('wa.me') > -1) track('contacto_whatsapp', params);
+    else if (href.indexOf('tel:') === 0) track('contacto_llamada', params);
+    else if (href.indexOf('mailto:') === 0) track('contacto_correo', params);
   });
 })();
