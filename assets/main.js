@@ -1,3 +1,14 @@
+// Envía eventos a Google Tag Manager (dataLayer), a GA4 directo si existe, y a Clarity.
+window.trackEvent = function (name, params) {
+  params = params || {};
+  window.dataLayer = window.dataLayer || [];
+  var data = { event: name };
+  for (var k in params) data[k] = params[k];
+  window.dataLayer.push(data);
+  if (window.gtag) window.gtag('event', name, params);
+  if (window.clarity) window.clarity('event', name);
+};
+
 // Menú móvil
 (function () {
   var btn = document.querySelector('.menu-toggle');
@@ -43,7 +54,7 @@
     if (!form.reportValidity()) return;
 
     if (!key || key.indexOf('PON_AQUI') === 0) {
-      if (window.gtag) window.gtag('event', 'generate_lead', { metodo: 'formulario_whatsapp' });
+      window.trackEvent('generate_lead', { metodo: 'formulario_whatsapp', pagina: location.pathname });
       window.open('https://wa.me/' + wa + '?text=' + encodeURIComponent(whatsappText()), '_blank', 'noopener');
       return;
     }
@@ -62,8 +73,7 @@
           status.textContent = '¡Listo! Recibí tu solicitud y te contacto pronto.';
           status.className = 'form-status ok';
           form.reset();
-          if (window.gtag) window.gtag('event', 'generate_lead', { metodo: 'formulario' });
-          if (window.clarity) window.clarity('event', 'generate_lead');
+          window.trackEvent('generate_lead', { metodo: 'formulario', pagina: location.pathname });
         } else {
           throw new Error(res.message || 'error');
         }
@@ -77,10 +87,7 @@
 
 // Medición de contactos: WhatsApp, llamadas y correo (GA4 + Clarity)
 (function () {
-  function track(name, params) {
-    if (window.gtag) window.gtag('event', name, params);
-    if (window.clarity) window.clarity('event', name);
-  }
+  var track = window.trackEvent;
   document.addEventListener('click', function (e) {
     var a = e.target.closest && e.target.closest('a[href]');
     if (!a) return;

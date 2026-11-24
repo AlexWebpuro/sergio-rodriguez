@@ -27,8 +27,9 @@ WA_NUMBER = "573014497065"
 EMAIL = "sergiodavid.r46@gmail.com"
 WEB3FORMS_KEY = "PON_AQUI_TU_ACCESS_KEY"        # clave de web3forms.com; mientras no exista, el formulario abre WhatsApp
 # --- Métricas: pega aquí los códigos y vuelve a generar el sitio ---
-GA_ID = ""            # Google Analytics 4, ID de medición: "G-XXXXXXXXXX"
-CLARITY_ID = ""       # Microsoft Clarity, ID del proyecto: "abcd1234ef"
+GTM_ID = "GTM-MMLL66W7"  # Google Tag Manager (GA4 se configura dentro de GTM)
+GA_ID = ""            # Solo si NO se usa GTM: ID de medición de GA4 "G-XXXXXXXXXX"
+CLARITY_ID = "ziqutszzo0"  # Microsoft Clarity, ID del proyecto: "abcd1234ef"
 GSC_VERIFICATION = "" # Google Search Console, solo el valor content="..." de la etiqueta meta
 TODAY = date.today().isoformat()
 
@@ -438,8 +439,17 @@ def gsc_meta():
     return f'\n<meta name="google-site-verification" content="{GSC_VERIFICATION}">' if GSC_VERIFICATION else ""
 
 
+def gtm_body():
+    if not GTM_ID:
+        return ""
+    return f'<noscript><iframe src="https://www.googletagmanager.com/ns.html?id={GTM_ID}" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>\n'
+
+
 def ga():
     out = ""
+    if GTM_ID:
+        out += f"""<script>(function(w,d,s,l,i){{w[l]=w[l]||[];w[l].push({{'gtm.start':new Date().getTime(),event:'gtm.js'}});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);}})(window,document,'script','dataLayer','{GTM_ID}');</script>
+"""
     if GA_ID:
         out += f"""<script async src="https://www.googletagmanager.com/gtag/js?id={GA_ID}"></script>
 <script>window.dataLayer=window.dataLayer||[];function gtag(){{dataLayer.push(arguments);}}gtag('js',new Date());gtag('config','{GA_ID}');</script>
@@ -457,6 +467,7 @@ def page(path, title, description, body, current="", schemas=(), robots="index,f
 <html lang="es-CO" data-base="{BASE}">
 <head>
 <meta charset="utf-8">
+{ga()}
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{escape(title)}</title>
 <meta name="description" content="{escape(description)}">
@@ -474,10 +485,9 @@ def page(path, title, description, body, current="", schemas=(), robots="index,f
 <link rel="icon" href="{url('assets/favicon.svg')}" type="image/svg+xml">
 <link rel="stylesheet" href="{url('assets/styles.css')}">
 {ld}
-{ga()}
 </head>
 <body>
-{header(current)}
+{gtm_body()}{header(current)}
 <main>
 {body}
 </main>
