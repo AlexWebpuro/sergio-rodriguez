@@ -65,12 +65,55 @@ ICONS = {
 
 LOGO = '<svg class="brand-mark" viewBox="0 0 40 40" aria-hidden="true"><rect width="40" height="40" rx="10" fill="#0d2340"/><path d="M6 21h7l3-7 5 13 3-6h10" fill="none" stroke="#2fd1b8" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>'
 
+PHOTOS = {
+ "cpap-resmed-airsense-10-prueba-presion": "Verificación de presión de un CPAP ResMed AirSense 10 con manómetro",
+ "banco-trabajo-mantenimiento-cpap": "Mantenimiento de un CPAP Philips DreamStation en el banco de trabajo",
+ "turbina-cpap-philips-dreamstation": "Turbina de un CPAP Philips DreamStation durante el mantenimiento",
+ "turbina-cpap-resmed-desarmada": "Turbina de un CPAP ResMed desarmada para limpieza y revisión",
+ "cambio-filtro-cpap-resmed": "Cambio de filtro sucio en un CPAP ResMed",
+ "humidificador-cpap-dreamstation-limpio": "Cámara del humidificador de un CPAP DreamStation después de la limpieza",
+ "concentrador-oxigeno-o2-tiger-m50": "Concentrador de oxígeno O2 Tiger M50 después del mantenimiento",
+ "compresor-concentrador-oxigeno": "Compresor de un concentrador de oxígeno durante la revisión",
+ "filtro-entrada-concentrador-oxigeno": "Cambio del filtro de entrada de un concentrador de oxígeno",
+ "concentrador-portatil-inogen-one-g4": "Concentrador de oxígeno portátil Inogen One G4 en prueba de funcionamiento",
+ "interior-concentrador-portatil-inogen": "Interior de un concentrador portátil Inogen durante el mantenimiento",
+ "mantenimiento-fuente-de-luz-olympus": "Mantenimiento de una fuente de luz Olympus de endoscopia en una clínica",
+ "optica-fuente-de-luz-endoscopia": "Revisión de la óptica interna de una fuente de luz de endoscopia",
+ "fuente-de-luz-led-endoscopia-interior": "Interior de una fuente de luz LED de endoscopia",
+ "camara-endoscopia-hd-desarmada": "Cabezal de cámara de endoscopia HD desarmado para reparación",
+ "vaina-endoscopio-rigido-desarmada": "Vaina de endoscopio rígido desarmada para limpieza y mantenimiento",
+ "vaina-endoscopio-rigido-llaves": "Revisión de las llaves de irrigación de una vaina de endoscopio rígido",
+ "vaina-endoscopio-rigido-ensamblada": "Vaina de endoscopio rígido ensamblada después del mantenimiento",
+ "desfibrilador-mindray-beneheart-d3-prueba-energia": "Prueba de energía de un desfibrilador Mindray BeneHeart D3"
+}
+
+HOME_GALLERY = [
+    "cpap-resmed-airsense-10-prueba-presion", "concentrador-portatil-inogen-one-g4",
+    "mantenimiento-fuente-de-luz-olympus", "desfibrilador-mindray-beneheart-d3-prueba-energia",
+    "turbina-cpap-philips-dreamstation", "compresor-concentrador-oxigeno",
+    "camara-endoscopia-hd-desarmada", "vaina-endoscopio-rigido-desarmada",
+]
+
+
+def photo_src(name, small=False):
+    return url(f"assets/fotos/{name}{'-600' if small else ''}.webp")
+
+
+def gallery_html(names):
+    items = "".join(
+        f'<figure><a href="{photo_src(n)}" target="_blank" rel="noopener"><img src="{photo_src(n, True)}" alt="{escape(PHOTOS[n])}" loading="lazy" width="600" height="600"></a><figcaption>{escape(PHOTOS[n])}</figcaption></figure>'
+        for n in names
+    )
+    return f'<div class="gallery">{items}</div>'
+
+
 # ---------------------------------------------------------------------------
 # Servicios (una página por línea de equipos)
 # ---------------------------------------------------------------------------
 SERVICES = [
     {
         "slug": "mantenimiento-cpap-bpap-bogota",
+        "photos": ['cpap-resmed-airsense-10-prueba-presion', 'turbina-cpap-philips-dreamstation', 'turbina-cpap-resmed-desarmada', 'cambio-filtro-cpap-resmed', 'humidificador-cpap-dreamstation-limpio', 'banco-trabajo-mantenimiento-cpap'],
         "img": "cpap",
         "icon": "cpap",
         "short": "CPAP y BPAP",
@@ -106,6 +149,7 @@ SERVICES = [
     },
     {
         "slug": "mantenimiento-concentradores-oxigeno-bogota",
+        "photos": ['concentrador-oxigeno-o2-tiger-m50', 'compresor-concentrador-oxigeno', 'filtro-entrada-concentrador-oxigeno', 'concentrador-portatil-inogen-one-g4', 'interior-concentrador-portatil-inogen'],
         "img": "concentrador",
         "icon": "oxygen",
         "short": "Concentradores de oxígeno",
@@ -141,6 +185,7 @@ SERVICES = [
     },
     {
         "slug": "mantenimiento-torres-endoscopia-laparoscopia-bogota",
+        "photos": ['mantenimiento-fuente-de-luz-olympus', 'optica-fuente-de-luz-endoscopia', 'fuente-de-luz-led-endoscopia-interior', 'camara-endoscopia-hd-desarmada'],
         "img": "torre-endoscopia",
         "icon": "tower",
         "short": "Torres de endoscopia y laparoscopia",
@@ -176,6 +221,7 @@ SERVICES = [
     },
     {
         "slug": "mantenimiento-endoscopios-rigidos-flexibles-bogota",
+        "photos": ['vaina-endoscopio-rigido-desarmada', 'vaina-endoscopio-rigido-llaves', 'vaina-endoscopio-rigido-ensamblada'],
         "img": "endoscopio",
         "icon": "scope",
         "short": "Endoscopios rígidos y flexibles",
@@ -408,9 +454,23 @@ def cta_band(title="¿Tu equipo necesita revisión?", text="Escríbeme por Whats
 </div>"""
 
 
+def card_img(s):
+    if s.get("photos"):
+        n = s["photos"][0]
+        return f'<img class="card-img photo" src="{photo_src(n, True)}" alt="{escape(PHOTOS[n])}" width="600" height="400" loading="lazy">'
+    return f'<img class="card-img" src="{url("assets/img/" + s["img"] + ".svg")}" alt="{s["short"]}" width="480" height="320" loading="lazy">'
+
+
+def hero_img(s):
+    if s.get("photos"):
+        n = s["photos"][0]
+        return f'<img class="hero-img photo" src="{photo_src(n)}" alt="{escape(PHOTOS[n])}" width="1200" height="900" fetchpriority="high">'
+    return f'<img class="hero-img" src="{url("assets/img/" + s["img"] + ".svg")}" alt="{s["short"]}" width="480" height="320" fetchpriority="high">'
+
+
 def service_card(s):
     return f"""<a class="card" href="{url('servicios/' + s['slug'] + '/')}">
-  <img class="card-img" src="{url('assets/img/' + s['img'] + '.svg')}" alt="{s['short']}" width="480" height="320" loading="lazy">
+  {card_img(s)}
   <h3>{s['short']}</h3>
   <p>{s['card']}</p>
   <span class="more">Ver servicio →</span>
@@ -498,6 +558,14 @@ def build_home():
 
 <section class="section">
   <div class="container">
+    <div class="center"><span class="eyebrow">Trabajos recientes</span><h2>Así trabajo con tus equipos</h2>
+    <p class="lead">Fotos reales de mantenimientos: CPAP ResMed y Philips, concentradores Inogen, fuentes de luz Olympus, desfibriladores Mindray y más.</p></div>
+    <div style="margin-top:28px">{gallery_html(HOME_GALLERY)}</div>
+  </div>
+</section>
+
+<section class="section alt">
+  <div class="container">
     <div class="center"><span class="eyebrow">Cómo trabajo</span><h2>Simple y sin sorpresas</h2></div>
     <ol class="steps" style="margin-top:28px">
       <li><h3>Me escribes</h3><p>Por WhatsApp o el formulario, con la marca, el modelo y lo que le pasa al equipo.</p></li>
@@ -507,7 +575,7 @@ def build_home():
   </div>
 </section>
 
-<section class="section alt">
+<section class="section">
   <div class="container grid grid-2" style="align-items:center">
     <div>
       <span class="eyebrow">Sobre mí</span>
@@ -562,7 +630,7 @@ def build_service(s):
     <p class="lead">{s['intro']}</p>
     <div class="btn-row"><a class="btn btn-wa" href="{wa_link(wa_text)}" target="_blank" rel="noopener">{ICONS['wa']} Escríbeme por WhatsApp</a><a class="btn btn-ghost" href="{url('contacto/')}">Solicitar cotización</a></div>
     </div>
-    <img class="hero-img" src="{url('assets/img/' + s['img'] + '.svg')}" alt="{s['short']}" width="480" height="320" fetchpriority="high">
+    {hero_img(s)}
   </div>
 </section>
 <section class="section">
@@ -573,6 +641,7 @@ def build_service(s):
       {notice}
       <h2>Qué incluye el servicio</h2>
       <ul class="check-list">{includes}</ul>
+      {('<h2>Trabajos realizados</h2>' + gallery_html(s['photos'][1:])) if len(s.get('photos', [])) > 1 else ''}
       <h2>Zonas donde atiendo</h2>
       <p>Estoy ubicado en Suba y atiendo en el norte de Bogotá y la Sabana:</p>
       {zones_html()}

@@ -268,3 +268,11 @@ a.card:hover { box-shadow: var(--shadow); transform: translateY(-2px); border-co
 .page-hero-grid { display: grid; grid-template-columns: 1.2fr .8fr; gap: 36px; align-items: center; }
 .hero-img { width: 100%; height: auto; border-radius: 20px; box-shadow: var(--shadow); }
 @media (max-width: 900px) { .page-hero-grid { grid-template-columns: 1fr; } .hero-img { max-width: 480px; } }
+
+/* Fotos reales */
+.card-img.photo { object-fit: cover; aspect-ratio: 3 / 2; background: var(--bg); }
+.hero-img.photo { object-fit: cover; aspect-ratio: 4 / 3; max-height: 440px; }
+.gallery { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 14px; margin: 0 0 1em; }
+.gallery figure { margin: 0; background: #fff; border: 1px solid var(--line); border-radius: 12px; overflow: hidden; }
+.gallery img { display: block; width: 100%; height: auto; aspect-ratio: 1 / 1; object-fit: cover; }
+.gallery figcaption { font-size: .85rem; color: var(--muted); padding: 10px 12px; line-height: 1.4; }

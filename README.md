@@ -53,5 +53,5 @@ y se pega en `WEB3FORMS_KEY` dentro de `tools/build.py`. Luego se regenera el si
 
 - [ ] Marcas y modelos que maneja (ResMed, Philips, Yuwell, Olympus, Storz, Pentax…) para añadirlos a cada servicio.
 - [ ] Si hace calibración e instalación y si entrega certificado.
-- [ ] Fotos reales de su trabajo (reemplazar el diseño sin fotos).
+- [ ] Fotos de mobiliario hospitalario (esa página aún usa ilustración).
 - [ ] Revisar que los textos técnicos de cada servicio reflejan lo que él hace.
